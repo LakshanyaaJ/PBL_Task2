@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments | Student Portal</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <style>
+        .assignments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .assignment-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .assignment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .due-date {
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .file-upload-area {
+            border: 2px dashed var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .file-upload-area:hover {
+            border-color: var(--primary);
+            background-color: #F8FAFC;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Reusable Sidebar -->
+        <input type="checkbox" id="sidebar-toggle" style="display: none;">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="material-icons-round" style="margin-right: 0.5rem;">school</i>
+                <span>UniPortal</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="material-icons-round">dashboard</i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="courses.html" class="nav-link">
+                    <i class="material-icons-round">book</i>
+                    <span>My Courses</span>
+                </a>
+                <a href="assignments.html" class="nav-link active">
+                    <i class="material-icons-round">assignment</i>
+                    <span>Assignments</span>
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <i class="material-icons-round">person</i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-link" style="color: var(--danger-text);">
+                    <i class="material-icons-round">logout</i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="flex items-center">
+                    <label for="sidebar-toggle" class="btn btn-secondary" style="margin-right: 1rem; display: none;">
+                        <i class="material-icons-round">menu</i>
+                    </label>
+                    <h2 style="font-size: 1.25rem;">Assignments</h2>
+                </div>
+
+                <div class="header-search">
+                    <input type="text" placeholder="Search assignments...">
+                </div>
+
+                <div class="header-profile">
+                    <div class="text-right" style="display: none;">
+                        <p style="font-weight: 600; font-size: 0.9rem;">LAKSHANYAA J</p>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Computer Science</p>
+                    </div>
+                    <img src="https://ui-avatars.com/api/?name=Lakshanyaa+J&background=5B4BFF&color=fff" alt="Profile"
+                        class="profile-img">
+                </div>
+            </header>
+
+            <style>
+                @media (max-width: 768px) {
+                    label[for="sidebar-toggle"] {
+                        display: inline-flex !important;
+                    }
+
+                    .text-right {
+                        display: none !important;
+                    }
+                }
+
+                @media (min-width: 769px) {
+                    .text-right {
+                        display: block !important;
+                    }
+                }
+            </style>
+
+            <div class="content-wrapper">
+                <div class="flex justify-between items-center" style="margin-bottom: 2rem;">
+                    <div>
+                        <h1 style="font-size: 1.5rem;">Pending Assignments</h1>
+                        <p class="text-secondary">Keep track of your deadlines</p>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn btn-secondary">
+                            <i class="material-icons-round" style="font-size: 18px; margin-right: 0.5rem;">sort</i> Sort
+                            by Date
+                        </button>
+                    </div>
+                </div>
+
+                <div class="assignments-grid">
+
+                    <!-- Assignment 1 (Pending) -->
+                    <div class="card assignment-card">
+                        <div>
+                            <div class="assignment-header">
+                                <span class="badge badge-pending">Pending</span>
+                                <span class="text-secondary" style="font-size: 0.8rem;">Web Development</span>
+                            </div>
+                            <h3 class="card-title" style="margin-bottom: 0.5rem;">Build a Portfolio Website</h3>
+                            <div class="due-date">
+                                <i class="material-icons-round"
+                                    style="font-size: 16px; margin-right: 0.5rem; color: var(--warning-text);">event</i>
+                                <span>Due: Feb 20, 2024 at 11:59 PM</span>
+                            </div>
+                            <p class="text-secondary" style="margin-bottom: 1.5rem; font-size: 0.9rem;">
+                                Create a personal portfolio website using HTML5 and CSS3. Include a home page, about
+                                page, and contact form.
+                            </p>
+
+                            <div class="file-upload-area">
+                                <i class="material-icons-round"
+                                    style="font-size: 32px; color: var(--text-muted); margin-bottom: 0.5rem;">cloud_upload</i>
+                                <p style="font-size: 0.9rem; color: var(--text-secondary);">Click or drag file to upload
+                                </p>
+                                <p style="font-size: 0.75rem; color: var(--text-muted);">(Max size: 10MB)</p>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%;">Submit Assignment</button>
+                    </div>
+
+                    <!-- Assignment 2 (Late) -->
+                    <div class="card assignment-card">
+                        <div>
+                            <div class="assignment-header">
+                                <span class="badge badge-late">Late - 2 Days Overdue</span>
+                                <span class="text-secondary" style="font-size: 0.8rem;">Database Systems</span>
+                            </div>
+                            <h3 class="card-title" style="margin-bottom: 0.5rem;">ER Diagram Design</h3>
+                            <div class="due-date">
+                                <i class="material-icons-round"
+                                    style="font-size: 16px; margin-right: 0.5rem; color: var(--danger-text);">event</i>
+                                <span style="color: var(--danger-text);">Due: Feb 08, 2024 at 11:59 PM</span>
+                            </div>
+                            <p class="text-secondary" style="margin-bottom: 1.5rem; font-size: 0.9rem;">
+                                Design an Entity-Relationship diagram for a university management system. Submit as a
+                                PDF or PNG.
+                            </p>
+
+                            <div class="file-upload-area"
+                                style="border-color: var(--danger-text); background-color: #FEF2F2;">
+                                <i class="material-icons-round"
+                                    style="font-size: 32px; color: var(--danger-text); margin-bottom: 0.5rem;">cloud_upload</i>
+                                <p style="font-size: 0.9rem; color: var(--danger-text);">Upload Late Submission</p>
+                            </div>
+                        </div>
+
+                        <button class="btn"
+                            style="width: 100%; background-color: var(--danger-text); color: white;">Submit
+                            Late</button>
+                    </div>
+
+                    <!-- Assignment 3 (Submitted) -->
+                    <div class="card assignment-card" style="opacity: 0.8;">
+                        <div>
+                            <div class="assignment-header">
+                                <span class="badge badge-submitted">In Grading</span>
+                                <span class="text-secondary" style="font-size: 0.8rem;">Calculus I</span>
+                            </div>
+                            <h3 class="card-title" style="margin-bottom: 0.5rem;">Integration Quiz</h3>
+                            <div class="due-date">
+                                <i class="material-icons-round"
+                                    style="font-size: 16px; margin-right: 0.5rem; color: var(--success-text);">check_circle</i>
+                                <span>Submitted: Feb 05, 2024</span>
+                            </div>
+                            <p class="text-secondary" style="margin-bottom: 1.5rem; font-size: 0.9rem;">
+                                Online quiz covering integration techniques and applications.
+                            </p>
+
+                            <div
+                                style="padding: 1rem; background: #F8FAFC; border-radius: var(--radius); display: flex; align-items: center; margin-bottom: 1rem;">
+                                <i class="material-icons-round"
+                                    style="color: var(--primary); margin-right: 0.5rem;">description</i>
+                                <span style="font-size: 0.9rem;">quiz_submission.pdf</span>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-disabled" style="width: 100%;">Already Submitted</button>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses | Student Portal</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <style>
+        /* ── Course Card Image Containment ── */
+        .course-card {
+            display: flex;
+            flex-direction: column;
+            border-radius: var(--radius);
+            overflow: hidden;
+            /* clips image to card corners */
+            text-decoration: none;
+            color: inherit;
+            background: white;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(91, 75, 255, 0.12);
+        }
+
+        .course-card-img-wrapper {
+            width: 100%;
+            height: 180px;
+            /* uniform height for all cards */
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .course-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* fill without distortion */
+            display: block;
+        }
+
+        .course-card-body {
+            padding: 1.25rem 1.5rem 1.5rem;
+        }
+
+        .course-code {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .instructor-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #E2E8F0;
+            border-radius: 3px;
+            margin: 0.75rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Reusable Sidebar -->
+        <input type="checkbox" id="sidebar-toggle" style="display: none;">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="material-icons-round" style="margin-right: 0.5rem;">school</i>
+                <span>UniPortal</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="material-icons-round">dashboard</i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="courses.html" class="nav-link active">
+                    <i class="material-icons-round">book</i>
+                    <span>My Courses</span>
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <i class="material-icons-round">assignment</i>
+                    <span>Assignments</span>
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <i class="material-icons-round">person</i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-link" style="color: var(--danger-text);">
+                    <i class="material-icons-round">logout</i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="flex items-center">
+                    <label for="sidebar-toggle" class="btn btn-secondary" style="margin-right: 1rem; display: none;">
+                        <i class="material-icons-round">menu</i>
+                    </label>
+                    <h2 style="font-size: 1.25rem;">My Courses</h2>
+                </div>
+
+                <div class="header-search">
+                    <input type="text" placeholder="Search courses...">
+                </div>
+
+                <div class="header-profile">
+                    <div class="text-right" style="display: none;">
+                        <p style="font-weight: 600; font-size: 0.9rem;">LAKSHANYAA J</p>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Computer Science</p>
+                    </div>
+                    <img src="https://ui-avatars.com/api/?name=Lakshanyaa+J&background=5B4BFF&color=fff" alt="Profile"
+                        class="profile-img">
+                </div>
+            </header>
+
+            <style>
+                @media (max-width: 768px) {
+                    label[for="sidebar-toggle"] {
+                        display: inline-flex !important;
+                    }
+
+                    .text-right {
+                        display: none !important;
+                    }
+                }
+
+                @media (min-width: 769px) {
+                    .text-right {
+                        display: block !important;
+                    }
+                }
+
+                /* ── Responsive Grid ── */
+                .courses-grid {
+                    display: grid;
+                    gap: 2rem;
+                }
+
+                @media (min-width: 1200px) {
+                    .courses-grid {
+                        grid-template-columns: repeat(4, 1fr);
+                    }
+                }
+
+                @media (max-width: 1199px) and (min-width: 900px) {
+                    .courses-grid {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                }
+
+                @media (max-width: 899px) and (min-width: 600px) {
+                    .courses-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+
+                @media (max-width: 599px) {
+                    .courses-grid {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            </style>
+
+            <div class="content-wrapper">
+                <div class="flex justify-between items-center" style="margin-bottom: 2rem;">
+                    <div>
+                        <h1 style="font-size: 1.5rem;">Enrolled Courses</h1>
+                        <p class="text-secondary">Manage your learning progress</p>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn btn-secondary">
+                            <i class="material-icons-round"
+                                style="font-size: 18px; margin-right: 0.5rem;">filter_list</i> Filter
+                        </button>
+                    </div>
+                </div>
+
+                <div class="courses-grid">
+
+                    <!-- Course 1 -->
+                    <a href="course-detail.html" class="course-card">
+                        <div class="course-card-img-wrapper">
+                            <img src="images/data-structures-and-algorithms.jpg" alt="Data Structures & Algorithms"
+                                class="course-card-img">
+                        </div>
+                        <div class="course-card-body">
+                            <div class="flex justify-between items-center" style="margin-bottom: 0.5rem;">
+                                <span class="badge badge-active">Active</span>
+                                <span class="course-code">CSE301</span>
+                            </div>
+                            <h3 class="card-title" style="margin-bottom: 0.5rem;">Data Structures & Algorithms</h3>
+                            <div class="flex items-center text-secondary"
+                                style="font-size: 0.9rem; margin-bottom: 1rem;">
+                                <i class="material-icons-round"
+                                    style="font-size: 16px; margin-right: 0.25rem;">person</i>
+                                <span>Dr. R. Srinivasan</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%; background-color: var(--primary);"></div>
+                            </div>
+                            <div class="flex justify-between" style="font-size: 0.8rem; color: var(--text-secondary);">
+                                <span>Progress</span>
+                                <span>75%</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Course 2 -->
+                    <a href="#" class="course-card">
+                        <div class="course-card-img-wrapper">
+                            <img src="images/dbms.jpeg" alt="Database Management Systems" class="course-card-img">
+                        </div>
+                        <div class="course-card-body">
+                            <div class="flex justify-between items-center" style="margin-bottom: 0.5rem;">
+                                <span class="badge badge-active">Active</span>
+                                <span class="course-code">CSE302</span>
+                            </div>
+                            <h3 class="card-title" style="margin-bottom: 0.5rem;">Database Management Systems</h3>
+                            <div class="flex items-center text-secondary"
+                                style="font-size: 0.9rem; margin-bottom: 1rem;">
+                                <i class="material-icons-round"
+                                    style="font-size: 16px; margin-right: 0.25rem;">person</i>
+                                <span>Prof. Anitha Kumar</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%; background-color: var(--primary);"></div>
+                            </div>
+                            <div class="flex justify-between" style="font-size: 0.8rem; color: var(--text-secondary);">
+                                <span>Progress</span>
+                                <span>60%</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Course 3 -->
+                    <a href="#" class="course-card">
+                        <div class="course-card-img-wrapper">
+                            <img src="images/network.jpeg" alt="Computer Networks" class="course-card-img">
+                        </div>
+                        <div class="course-card-body">
+                            <div class="flex justify-between items-center" style="margin-bottom: 0.5rem;">
+                                <span class="badge badge-active"
+                                    style="background-color: var(--success-bg); color: var(--success-text);">Completed</span>
+                                <span class="course-code">CSE303</span>
+                            </div>
+                            <h3 class="card-title" style="margin-bottom: 0.5rem;">Computer Networks</h3>
+                            <div class="flex items-center text-secondary"
+                                style="font-size: 0.9rem; margin-bottom: 1rem;">
+                                <i class="material-icons-round"
+                                    style="font-size: 16px; margin-right: 0.25rem;">person</i>
+                                <span>Dr. K. Prakash</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%; background-color: var(--success-text);">
+                                </div>
+                            </div>
+                            <div class="flex justify-between" style="font-size: 0.8rem; color: var(--text-secondary);">
+                                <span>Progress</span>
+                                <span>100%</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Course 4 -->
+                    <a href="#" class="course-card">
+                        <div class="course-card-img-wrapper">
+                            <img src="images/software.png" alt="Software Engineering" class="course-card-img">
+                        </div>
+                        <div class="course-card-body">
+                            <div class="flex justify-between items-center" style="margin-bottom: 0.5rem;">
+                                <span class="badge badge-active">Active</span>
+                                <span class="course-code">CSE304</span>
+                            </div>
+                            <h3 class="card-title" style="margin-bottom: 0.5rem;">Software Engineering</h3>
+                            <div class="flex items-center text-secondary"
+                                style="font-size: 0.9rem; margin-bottom: 1rem;">
+                                <i class="material-icons-round"
+                                    style="font-size: 16px; margin-right: 0.25rem;">person</i>
+                                <span>Prof. Meena Subramaniam</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%; background-color: var(--primary);"></div>
+                            </div>
+                            <div class="flex justify-between" style="font-size: 0.8rem; color: var(--text-secondary);">
+                                <span>Progress</span>
+                                <span>80%</span>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

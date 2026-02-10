@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development | Student Portal</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <style>
+        .course-page-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .syllabus-list {
+            list-style: none;
+        }
+
+        .syllabus-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .syllabus-item:hover {
+            background-color: var(--bg-page);
+        }
+
+        .syllabus-item.active {
+            border-left: 3px solid var(--primary);
+            background-color: #F5F3FF;
+        }
+
+        .syllabus-icon {
+            margin-right: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .instructor-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .instructor-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 900px) {
+            .course-page-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .syllabus-card {
+                order: 2;
+            }
+
+            .course-overview {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Reusable Sidebar -->
+        <input type="checkbox" id="sidebar-toggle" style="display: none;">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="material-icons-round" style="margin-right: 0.5rem;">school</i>
+                <span>UniPortal</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="material-icons-round">dashboard</i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="courses.html" class="nav-link active">
+                    <i class="material-icons-round">book</i>
+                    <span>My Courses</span>
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <i class="material-icons-round">assignment</i>
+                    <span>Assignments</span>
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <i class="material-icons-round">person</i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-link" style="color: var(--danger-text);">
+                    <i class="material-icons-round">logout</i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="flex items-center">
+                    <label for="sidebar-toggle" class="btn btn-secondary" style="margin-right: 1rem; display: none;">
+                        <i class="material-icons-round">menu</i>
+                    </label>
+                    <div class="flex items-center">
+                        <a href="courses.html" class="text-secondary" style="margin-right: 0.5rem;"><i
+                                class="material-icons-round">arrow_back</i></a>
+                        <h2 style="font-size: 1.25rem;">Web Development</h2>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <input type="text" placeholder="Search in course...">
+                </div>
+
+                <div class="header-profile">
+                    <div class="text-right" style="display: none;">
+                        <p style="font-weight: 600; font-size: 0.9rem;">LAKSHANYAA J</p>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Computer Science</p>
+                    </div>
+                    <img src="https://ui-avatars.com/api/?name=Lakshanyaa+J&background=5B4BFF&color=fff" alt="Profile"
+                        class="profile-img">
+                </div>
+            </header>
+
+            <style>
+                @media (max-width: 768px) {
+                    label[for="sidebar-toggle"] {
+                        display: inline-flex !important;
+                    }
+
+                    .text-right {
+                        display: none !important;
+                    }
+                }
+
+                @media (min-width: 769px) {
+                    .text-right {
+                        display: block !important;
+                    }
+                }
+            </style>
+
+            <div class="content-wrapper">
+
+                <div class="course-page-grid">
+
+                    <!-- Left Column: Syllabus -->
+                    <div class="card syllabus-card" style="padding: 0;">
+                        <div class="card-header"
+                            style="padding: 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 0;">
+                            <h3 class="card-title">Syllabus</h3>
+                            <span class="badge badge-active" style="font-size: 0.7rem;">35/48 Lessons</span>
+                        </div>
+                        <ul class="syllabus-list">
+                            <li class="syllabus-item active">
+                                <div class="flex items-center">
+                                    <i class="material-icons-round syllabus-icon">play_circle</i>
+                                    <div>
+                                        <p style="font-weight: 500;">Introduction to HTML5</p>
+                                        <p style="font-size: 0.8rem; color: var(--text-secondary);">15 min</p>
+                                    </div>
+                                </div>
+                                <i class="material-icons-round" style="color: var(--success-text);">check_circle</i>
+                            </li>
+                            <li class="syllabus-item">
+                                <div class="flex items-center">
+                                    <i class="material-icons-round syllabus-icon">play_circle</i>
+                                    <div>
+                                        <p style="font-weight: 500;">Semantic Elements</p>
+                                        <p style="font-size: 0.8rem; color: var(--text-secondary);">20 min</p>
+                                    </div>
+                                </div>
+                                <i class="material-icons-round"
+                                    style="color: var(--text-muted);">radio_button_unchecked</i>
+                            </li>
+                            <li class="syllabus-item">
+                                <div class="flex items-center">
+                                    <i class="material-icons-round syllabus-icon">description</i>
+                                    <div>
+                                        <p style="font-weight: 500;">CSS Box Model</p>
+                                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Reading</p>
+                                    </div>
+                                </div>
+                                <i class="material-icons-round" style="color: var(--text-muted);">lock</i>
+                            </li>
+                            <li class="syllabus-item">
+                                <div class="flex items-center">
+                                    <i class="material-icons-round syllabus-icon">quiz</i>
+                                    <div>
+                                        <p style="font-weight: 500;">Week 1 Quiz</p>
+                                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Assessment</p>
+                                    </div>
+                                </div>
+                                <i class="material-icons-round" style="color: var(--text-muted);">lock</i>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Right Column: Overview -->
+                    <div class="course-overview">
+                        <div class="card" style="margin-bottom: 2rem;">
+                            <div
+                                style="height: 200px; background: linear-gradient(135deg, #4338CA 0%, #5B4BFF 100%); border-radius: var(--radius); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: white;">
+                                <div style="text-align: center;">
+                                    <i class="material-icons-round"
+                                        style="font-size: 64px; margin-bottom: 1rem;">play_circle_filled</i>
+                                    <h2>Introduction to HTML5</h2>
+                                </div>
+                            </div>
+
+                            <h2 style="margin-bottom: 1rem;">Course Overview</h2>
+                            <p class="text-secondary" style="margin-bottom: 1.5rem;">
+                                In this lesson, we will cover the basics of HTML5, the structure of visual elements, and
+                                how to create a semantic web page. You will learn about the new tags introduced in HTML5
+                                and why they are important for accessibility and SEO.
+                            </p>
+
+                            <h3 style="margin-bottom: 1rem;">What you'll learn</h3>
+                            <ul
+                                style="list-style: disc; padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                                <li style="margin-bottom: 0.5rem;">Understanding HTML document structure</li>
+                                <li style="margin-bottom: 0.5rem;">Using semantic tags like &lt;header&gt;,
+                                    &lt;footer&gt;, &lt;article&gt;</li>
+                                <li style="margin-bottom: 0.5rem;">Best practices for clean HTML code</li>
+                            </ul>
+
+                            <button class="btn btn-primary">Start Lesson</button>
+                        </div>
+
+                        <!-- Instructor Card -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Instructor</h3>
+                            </div>
+                            <div class="instructor-card">
+                                <img src="https://ui-avatars.com/api/?name=Prof+Smith&background=random"
+                                    alt="Instructor" class="instructor-img">
+                                <div>
+                                    <h4 style="font-weight: 600;">Prof. Smith</h4>
+                                    <p class="text-secondary" style="font-size: 0.9rem;">Senior Lecturer, Computer
+                                        Science Dept.</p>
+                                    <div class="flex items-center" style="margin-top: 0.5rem; gap: 1rem;">
+                                        <a href="#" class="text-primary" style="font-size: 0.9rem;">View Profile</a>
+                                        <a href="#" class="text-secondary" style="font-size: 0.9rem;">Contact</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
