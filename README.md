@@ -10,17 +10,29 @@ A responsive Learning Management System UI built using HTML5 and CSS3.
 ## Folder Structure
 lms-ui/
 │
+
 ├── index.html
+
 ├── dashboard.html
+
 ├── courses.html
+
 ├── assignments.html
+
 ├── profile.html
+
 │
+
 ├── css/
+
 │   ├── main.css
+
 │   ├── layout.css
+
 │   └── components.css
+
 │
+
 └── images/
 
 ## Version
