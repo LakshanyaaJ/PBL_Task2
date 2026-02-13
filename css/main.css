@@ -1,21 +1,20 @@
 :root {
-  /* Primary Theme */
+  
   --primary: #5B4BFF;
   --primary-hover: #4338CA;
   --secondary: #8B7CFF;
 
-  /* Neutral UI Colors */
+ 
   --bg-page: #F8FAFC;
   --bg-card: #FFFFFF;
   --border: #E2E8F0;
   --divider: #CBD5E1;
 
-  /* Text Colors */
+  
   --text-primary: #1E293B;
   --text-secondary: #64748B;
   --text-muted: #94A3B8;
 
-  /* Status Colors */
   --success-bg: #DCFCE7;
   --success-text: #166534;
   --warning-bg: #FEF3C7;
@@ -25,7 +24,7 @@
   --info-bg: #DBEAFE;
   --info-text: #1E40AF;
 
-  /* Spacing & Sizes */
+
   --radius: 10px;
   --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   --header-height: 70px;
@@ -61,7 +60,7 @@ img {
   display: block;
 }
 
-/* Utilities */
+
 .text-primary { color: var(--primary); }
 .text-secondary { color: var(--text-secondary); }
 .text-muted { color: var(--text-muted); }
