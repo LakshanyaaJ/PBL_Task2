@@ -11,13 +11,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <style>
-        /* ── Course Card Image Containment ── */
+       
         .course-card {
             display: flex;
             flex-direction: column;
             border-radius: var(--radius);
             overflow: hidden;
-            /* clips image to card corners */
+            
             text-decoration: none;
             color: inherit;
             background: white;
@@ -33,7 +33,6 @@
         .course-card-img-wrapper {
             width: 100%;
             height: 180px;
-            /* uniform height for all cards */
             overflow: hidden;
             flex-shrink: 0;
         }
@@ -42,7 +41,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* fill without distortion */
             display: block;
         }
 
@@ -83,7 +81,6 @@
 <body>
 
     <div class="app-container">
-        <!-- Reusable Sidebar -->
         <input type="checkbox" id="sidebar-toggle" style="display: none;">
         <aside class="sidebar">
             <div class="sidebar-header">
@@ -158,7 +155,6 @@
                     }
                 }
 
-                /* ── Responsive Grid ── */
                 .courses-grid {
                     display: grid;
                     gap: 2rem;
@@ -205,7 +201,6 @@
 
                 <div class="courses-grid">
 
-                    <!-- Course 1 -->
                     <a href="course-detail.html" class="course-card">
                         <div class="course-card-img-wrapper">
                             <img src="images/data-structures-and-algorithms.jpg" alt="Data Structures & Algorithms"
@@ -233,7 +228,6 @@
                         </div>
                     </a>
 
-                    <!-- Course 2 -->
                     <a href="#" class="course-card">
                         <div class="course-card-img-wrapper">
                             <img src="images/dbms.jpeg" alt="Database Management Systems" class="course-card-img">
@@ -260,7 +254,7 @@
                         </div>
                     </a>
 
-                    <!-- Course 3 -->
+                    
                     <a href="#" class="course-card">
                         <div class="course-card-img-wrapper">
                             <img src="images/network.jpeg" alt="Computer Networks" class="course-card-img">
@@ -289,7 +283,7 @@
                         </div>
                     </a>
 
-                    <!-- Course 4 -->
+                    
                     <a href="#" class="course-card">
                         <div class="course-card-img-wrapper">
                             <img src="images/software.png" alt="Software Engineering" class="course-card-img">
