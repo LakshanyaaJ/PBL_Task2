@@ -64,7 +64,6 @@
 <body>
 
     <div class="app-container">
-        <!-- Sidebar -->
         <input type="checkbox" id="sidebar-toggle" style="display: none;">
         <aside class="sidebar">
             <div class="sidebar-header">
@@ -99,9 +98,7 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
         <main class="main-content">
-            <!-- Top Header -->
             <header class="top-header">
                 <div class="flex items-center">
                     <label for="sidebar-toggle" class="btn btn-secondary" style="margin-right: 1rem; display: none;">
@@ -143,7 +140,6 @@
             </style>
 
             <div class="content-wrapper">
-                <!-- Welcome Section -->
                 <div
                     style="margin-bottom: 2rem; display: flex; align-items: center; gap: 1.5rem; background: white; padding: 1.5rem; border-radius: var(--radius); box-shadow: var(--shadow);">
                     <img src="https://ui-avatars.com/api/?name=Lakshanyaa+J&background=5B4BFF&color=fff&size=80"
@@ -155,9 +151,7 @@
                     </div>
                 </div>
 
-                <!-- Stats Grid (6 Cards) -->
                 <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                    <!-- Enrolled Courses -->
                     <div class="card stat-card">
                         <div class="stat-info">
                             <h3>6</h3>
@@ -168,7 +162,6 @@
                         </div>
                     </div>
 
-                    <!-- Ongoing Courses -->
                     <div class="card stat-card">
                         <div class="stat-info">
                             <h3>4</h3>
@@ -179,7 +172,6 @@
                         </div>
                     </div>
 
-                    <!-- Completed Courses -->
                     <div class="card stat-card">
                         <div class="stat-info">
                             <h3>2</h3>
@@ -190,7 +182,6 @@
                         </div>
                     </div>
 
-                    <!-- Overall Completion -->
                     <div class="card stat-card">
                         <div class="stat-info">
                             <h3>67%</h3>
@@ -201,7 +192,6 @@
                         </div>
                     </div>
 
-                    <!-- Attendance -->
                     <div class="card stat-card">
                         <div class="stat-info">
                             <h3>87%</h3>
@@ -212,7 +202,6 @@
                         </div>
                     </div>
 
-                    <!-- GPA -->
                     <div class="card stat-card">
                         <div class="stat-info">
                             <h3>8.42</h3>
@@ -224,7 +213,6 @@
                     </div>
                 </div>
 
-                <!-- My Course Progress Section -->
                 <section style="margin-bottom: 2rem;">
                     <h3 class="section-header">My Course Progress</h3>
                     <div class="card">
@@ -301,17 +289,16 @@
                     </div>
                 </section>
 
-                <!-- Ongoing vs Completed Grid -->
-                <!-- Main Grid Layout -->
+                
                 <div class="grid dashboard-split-grid" style="grid-template-columns: 1fr 1fr; gap: 1.5rem;">
 
-                    <!-- Ongoing Courses Column -->
+                    
                     <section>
                         <div class="section-header">
                             <h3>Ongoing Courses</h3>
                         </div>
                         <div class="flex flex-col gap-4" style="flex-direction: column; gap: 1rem;">
-                            <!-- Course 1 -->
+                       
                             <div class="card">
                                 <div class="card-header" style="margin-bottom: 0.5rem;">
                                     <h4 class="card-title">Data Structures & Algorithms</h4>
@@ -326,7 +313,7 @@
                                     Complete</p>
                             </div>
 
-                            <!-- Course 2 -->
+                         
                             <div class="card">
                                 <div class="card-header" style="margin-bottom: 0.5rem;">
                                     <h4 class="card-title">Database Management Systems</h4>
@@ -343,13 +330,13 @@
                         </div>
                     </section>
 
-                    <!-- Completed Courses Column -->
+                    
                     <section>
                         <div class="section-header">
                             <h3>Completed Courses</h3>
                         </div>
                         <div class="flex flex-col gap-4" style="flex-direction: column; gap: 1rem;">
-                            <!-- Course 1 -->
+                          
                             <div class="card" style="border-left: 4px solid var(--success-bg);">
                                 <div class="card-header" style="margin-bottom: 0.5rem;">
                                     <h4 class="card-title">Computer Networks</h4>
@@ -364,7 +351,7 @@
                                     Successfully Completed</p>
                             </div>
 
-                            <!-- Course 2 -->
+                            
                             <div class="card" style="border-left: 4px solid var(--success-bg);">
                                 <div class="card-header" style="margin-bottom: 0.5rem;">
                                     <h4 class="card-title">Programming in Java</h4>
@@ -384,7 +371,7 @@
                 </div>
 
                 <style>
-                    /* Responsive Grid for Dashboard Split */
+                    
                     @media (max-width: 900px) {
                         .dashboard-split-grid {
                             grid-template-columns: 1fr !important;
