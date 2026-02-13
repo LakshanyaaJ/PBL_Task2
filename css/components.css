@@ -1,6 +1,4 @@
-/* Components */
 
-/* Buttons */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -41,7 +39,6 @@
     pointer-events: none;
 }
 
-/* Cards */
 .card {
     background-color: var(--bg-card);
     border-radius: var(--radius);
@@ -55,7 +52,6 @@
     transform: translateY(-3px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
     border-color: var(--primary);
-    /* Subtle highlight */
 }
 
 .card-header {
@@ -71,7 +67,6 @@
     color: var(--text-primary);
 }
 
-/* Inputs */
 .form-group {
     margin-bottom: 1.25rem;
 }
@@ -101,7 +96,6 @@
     box-shadow: 0 0 0 3px rgba(91, 75, 255, 0.1);
 }
 
-/* Badges */
 .badge {
     display: inline-flex;
     align-items: center;
@@ -138,7 +132,7 @@
     color: var(--danger-text);
 }
 
-/* Tables */
+
 .table-container {
     overflow-x: auto;
 }
@@ -165,7 +159,6 @@
     border-bottom: none;
 }
 
-/* Icons (CSS only) */
 .icon-css {
     display: inline-flex;
     align-items: center;
@@ -177,7 +170,7 @@
     line-height: 1;
 }
 
-/* Progress Bar Variants */
+
 .progress-container {
     width: 100%;
     height: 8px;
