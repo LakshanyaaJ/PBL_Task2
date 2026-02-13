@@ -1,10 +1,10 @@
-/* Global Layout */
+
 .app-container {
     display: flex;
     min-height: 100vh;
 }
 
-/* Sidebar */
+
 .sidebar {
     width: var(--sidebar-width);
     background-color: var(--bg-card);
@@ -64,7 +64,7 @@
     border-top: 1px solid var(--border);
 }
 
-/* Main Content Area */
+
 .main-content {
     flex: 1;
     margin-left: var(--sidebar-width);
@@ -73,7 +73,6 @@
     transition: margin-left 0.3s ease;
 }
 
-/* Header */
 .top-header {
     height: var(--header-height);
     background-color: var(--bg-card);
@@ -116,10 +115,9 @@
     margin: 0 auto;
 }
 
-/* Responsive Layout */
 @media (max-width: 1199px) {
 
-    /* Tablet */
+    
     .sidebar {
         width: var(--sidebar-collapsed-width);
     }
@@ -146,7 +144,7 @@
 
 @media (max-width: 768px) {
 
-    /* Mobile */
+   
     .sidebar {
         transform: translateX(-100%);
         width: var(--sidebar-width);
@@ -164,12 +162,11 @@
         display: none;
     }
 
-    /* Mobile Sidebar Toggle (Checkbox Hack) */
     #sidebar-toggle:checked~.sidebar {
         transform: translateX(0);
     }
 
-    /* Overlay when sidebar open */
+   
     #sidebar-toggle:checked~.main-content::before {
         content: '';
         position: fixed;
